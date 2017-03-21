@@ -28,6 +28,9 @@
         </ul>
         </div>
         <div class="content col-md-10 col-md-offset-2">
+          <% flash.each do |message_type, message| %>
+            <%= content_tag :div, message, class: "alert alert-#{message_type}" %>
+          <% end %>
           <%= yield %>
         </div>
       </div>

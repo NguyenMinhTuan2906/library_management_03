@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: [:new, :create]
   before_action :load_user, except: [:new, :index, :create]
+  before_action :correct_user, only: [:edit, :update]
 
   def index
-    @users = User.select(:id, :name, :email).order_name.paginate page: params[:page],
+    @users = User.select(:id, :name, :email)
+      .order(name: :asc).paginate page: params[:page],
       per_page: Settings.paginate.per_page
   end
 
@@ -12,6 +14,9 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+  end
+
+  def edit
   end
 
   def create
@@ -25,18 +30,27 @@ class UsersController < ApplicationController
     end
   end
 
-  private
-
-  def load_user
-    @user = User.find_by id: params[:id]
-    if @user.nil?
-      flash[:danger] = t ".none"
-      redirect_to root_url
+  def update
+    if @user.update_attributes user_params
+      flash[:success] = t ".success"
+      redirect_to @user
+    else
+      render :edit
     end
   end
+
+  private
 
   def user_params
     params.require(:user).permit :name, :email, :password,
       :password_confirmation
+  end
+
+  def correct_user
+    load_user
+    unless current_user? @user
+      flash[:danger] = t ".only_admin"
+      redirect_to root_url
+    end
   end
 end

@@ -1,8 +1,24 @@
 en:
   admin:
     users:
+      update:
+        success: "Profile Updated!"
+      edit:
+        email: "Email:"
+        name: "Name:"
+        password: "Password:"
+        update: "Update Member Profile"
+        confirm: "Password Confirmation:"
+        submit: "Save Changes"
+        change: "Change"
       index:
+        edit: "Edit"
         alluser: "All users"
+        confirm: "Are You Sure?"
+        delete: "Delete"
+      destroy:
+        delete: "Member has been deleted!"
+        delete_fail: "Can not delete this member!"
     homes:
       index:
         not_admin: "You are not admin!"
@@ -10,6 +26,8 @@ en:
         log_in: "Please Log in!"
   sessions:
     create:
+      welcome: "Welcome Admin!"
+      invalid: "Wrong password or email!"
       not_admin_welcome: "Welcome to Framgia Library!"
     new:
       login_tittle: "Log In"
@@ -25,6 +43,7 @@ en:
       errors: "The form contains"
   users:
     show:
+      log_in: "Please Log in!"
       none: "There is no user that matched this ID!"
     index:
       as: "You are not admin!"
@@ -34,6 +53,22 @@ en:
     create:
       welcome_user: "Welcome to Framgia Library"
     new:
+      create: "Create My Account"
+      signup: "Sign Up"
+      confirm: "Password Confirmation:"
+      title: "Sign Up"
+      email: "Email:"
+      name: "Name:"
+      password: "Password:"
+    update:
+      success: "Profile Updated"
+    edit:
+      only_admin: "Only admin can edit all members profiles!"
+      log_in: "Please log in."
+      change: "Change"
+      submit: "Save Changes"
+      edituser: "Edit User"
+      update: "Update Your Profile"
       create: "Create My Account"
       signup: "Sign Up"
       confirm: "Password Confirmation:"
@@ -69,3 +104,4 @@ en:
       page: "Page"
       logout: "Log out"
       home: "Home"
+      user: "Users"
