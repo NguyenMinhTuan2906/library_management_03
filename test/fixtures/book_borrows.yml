@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  expired_date: 2017-03-20 18:51:26
+  borrow_date: 2017-03-20 18:51:26
+  request_status: 1
+  books_id: 1
+  users_id: 1
+
+two:
+  expired_date: 2017-03-20 18:51:26
+  borrow_date: 2017-03-20 18:51:26
+  request_status: 1
+  books_id: 1
+  users_id: 1
