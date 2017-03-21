@@ -1,1 +1,19 @@
-hello: "Hello world"
+en:
+  pages:
+    help:
+      email: "My email:"
+      official: "Our official Framgia website:"
+      help: "Help"
+      contact_info: "For any help or comment please feel free to contact me at:"
+    home:
+      framgia: "Welcome to Framgia Library"
+      home: "Home"
+      framgia_welcome: "This is the home page of Framgia Library website"
+      signup: "Sign Up!"
+  layouts:
+    header:
+      home: "Home"
+      help: "Help"
+      log_in: "Log In"
+    application:
+      framgia_library: "Framgia Library Website"
