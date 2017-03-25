@@ -1,9 +1,16 @@
 en:
+  admin:
+    users:
+      index:
+        alluser: "All users"
+    homes:
+      index:
+        not_admin: "You are not admin!"
+        home_admin: "Admin Homepage"
+        log_in: "Please Log in!"
   sessions:
     create:
-      invalid: "Invalid email/password combination!"
-      not_activated_account: "Account has not been activated!"
-      check_email: "Please check your email for activation link!"
+      not_admin_welcome: "Welcome to Framgia Library!"
     new:
       login_tittle: "Log In"
       login: "Log In"
@@ -17,6 +24,13 @@ en:
     error_messages:
       errors: "The form contains"
   users:
+    show:
+      none: "There is no user that matched this ID!"
+    index:
+      as: "You are not admin!"
+      please: "PLease Log in!"
+      log_in: "Please Log in!"
+      alluser: "All Users"
     create:
       welcome_user: "Welcome to Framgia Library"
     new:
@@ -34,7 +48,7 @@ en:
       help: "Help"
       contact_info: "For any help or comment please feel free to contact me at:"
     home:
-      framgia: "Welcome to Framgia Library"
+      framgia: "Framgia Library"
       home: "Home"
       framgia_welcome: "This is the home page of Framgia Library website"
       signup: "Sign Up!"
@@ -50,4 +64,8 @@ en:
       setting: "Settings"
     application:
       framgia_library: "Framgia Library Website"
-
+    admin:
+      admin: "Admin"
+      page: "Page"
+      logout: "Log out"
+      home: "Home"

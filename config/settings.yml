@@ -4,3 +4,9 @@ email:
   maximum: 255
 password:
   minimum: 6
+gravatar_option:
+  size: 80
+gravatar_user:
+  size: 50
+paginate:
+  per_page: 5
