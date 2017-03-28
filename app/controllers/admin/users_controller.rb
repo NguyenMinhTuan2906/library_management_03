@@ -4,9 +4,14 @@ class Admin::UsersController < ApplicationController
   layout "admin"
 
   def index
-    @users = User.select(:id, :name, :email)
-      .order(name: :asc).paginate page: params[:page],
-      per_page: Settings.paginate.per_page
+    if params[:q].present?
+      @users = User.select(:id, :name, :email).search(params[:q])
+        .paginate page: params[:page], per_page: Settings.paginate.per_page
+    else
+      @users = User.select(:id, :name, :email)
+        .order(name: :asc).paginate page: params[:page],
+        per_page: Settings.paginate.per_page
+    end
   end
 
   def destroy
