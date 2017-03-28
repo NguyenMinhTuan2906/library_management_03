@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   namespace :admin do
     root "homes#index"
     resources :users
+    resources :authors
   end
 end
