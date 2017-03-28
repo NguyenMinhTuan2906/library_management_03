@@ -12,15 +12,18 @@ en:
         submit: "Save Changes"
         change: "Change"
       index:
+        not_found: "User Not Found!"
         edit: "Edit"
         alluser: "All users"
         confirm: "Are You Sure?"
         delete: "Delete"
+        search_user: "Search user by name or email..."
       destroy:
         delete: "Member has been deleted!"
         delete_fail: "Can not delete this member!"
     homes:
       index:
+        admin: "Admin"
         not_admin: "You are not admin!"
         home_admin: "Admin Homepage"
         log_in: "Please Log in!"
@@ -38,7 +41,6 @@ en:
       password: "Password:"
       forgot_password: "(Forgot password?)"
       remember_me: "Remember me on this computer"
-  shared:
     error_messages:
       errors: "The form contains"
   users:
@@ -105,3 +107,4 @@ en:
       logout: "Log out"
       home: "Home"
       user: "Users"
+      framgia_library: "Framgia Library"
