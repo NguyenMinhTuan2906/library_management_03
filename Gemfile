@@ -22,6 +22,7 @@ gem "i18n-js", ">= 3.0.0.rc11"
 gem "font-awesome-sass", "~> 4.7.0"
 gem "will_paginate", "3.1.0"
 gem "bootstrap-will_paginate", "0.0.10"
+gem "faker", "1.6.6"
 
 group :development, :test do
   gem "byebug", platform: :mri

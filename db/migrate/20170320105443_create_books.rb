@@ -4,10 +4,9 @@ class CreateBooks < ActiveRecord::Migration[5.0]
       t.string :name
       t.integer :paperback
       t.string :image
-      t.boolean :status
-      t.integer :authors_id
-      t.integer :publishers_id
-      t.integer :categories_id
+      t.boolean :status, default: true
+      t.integer :publisher_id
+      t.integer :category_id
 
       t.timestamps
     end
