@@ -12,7 +12,6 @@ en:
         description: "Author description:"
       index:
         all_author: "All Authors"
-        create: "Create New Author!"
     users:
       update:
         success: "Profile Updated!"
@@ -122,3 +121,5 @@ en:
       user: "Users"
       framgia_library: "Framgia Library"
       author: "Authors"
+      create: "Create"
+      create_author: "Create New Author"
