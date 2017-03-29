@@ -1,6 +1,7 @@
 class Admin::AuthorsController < ApplicationController
   before_action :logged_in_user, :verify_admin
   before_action :load_author, except: [:new, :index, :create]
+
   layout "admin"
 
   def index
@@ -46,7 +47,7 @@ class Admin::AuthorsController < ApplicationController
     end
     redirect_to admin_authors_url
   end
-
+  
   private
 
   def author_params
