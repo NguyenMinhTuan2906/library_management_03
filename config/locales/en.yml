@@ -4,6 +4,12 @@ en:
       errors: "The form contains"
   admin:
     authors:
+      edit:
+        name: "Author name:"
+        description: "Author description:"
+        update: "Edit Author Profile"
+      update:
+        success: "Author profile updated!"
       create:
         author: "Author Created!"
       new:
@@ -11,6 +17,7 @@ en:
         name: "Author name:"
         description: "Author description:"
       index:
+        edit: "Edit"
         all_author: "All Authors"
     users:
       update:
