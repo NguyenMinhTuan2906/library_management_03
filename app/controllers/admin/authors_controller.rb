@@ -8,6 +8,14 @@ class Admin::AuthorsController < ApplicationController
       per_page: Settings.paginate.per_page
   end
 
+  def show
+    @author = Author.find_by id: params[:id]
+    unless @author
+      flash[:danger] = t ".none"
+      redirect_to admin_authors_path
+    end
+  end
+
   def new
     @author = Author.new
   end
