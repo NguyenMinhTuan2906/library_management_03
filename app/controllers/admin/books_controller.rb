@@ -10,7 +10,6 @@ class Admin::BooksController < ApplicationController
 
   def new
     @book = Book.new
-    @author = Author.all.map{|c| [c.name, c.id]}
   end
 
   def create
