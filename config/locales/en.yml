@@ -1,5 +1,18 @@
 en:
+  shared:
+    error_messages:
+      errors: "The form contains"
   admin:
+    authors:
+      create:
+        author: "Author Created!"
+      new:
+        create: "Create New Author"
+        name: "Author name:"
+        description: "Author description:"
+      index:
+        all_author: "All Authors"
+        create: "Create New Author!"
     users:
       update:
         success: "Profile Updated!"
@@ -108,3 +121,4 @@ en:
       home: "Home"
       user: "Users"
       framgia_library: "Framgia Library"
+      author: "Authors"
