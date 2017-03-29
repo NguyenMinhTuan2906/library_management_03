@@ -1,0 +1,10 @@
+<% provide :title, @category.name %>
+<div class="category">
+  <h2><%= @category.name %></h2>
+  <p><%= @category.description %></p>
+  <ul>
+    <% @books.each do |book| %>
+      <li><%= book.name %></li>
+    <% end %>
+  </ul>
+</div>
