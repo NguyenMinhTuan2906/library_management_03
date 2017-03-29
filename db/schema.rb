@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170321115538) do
+ActiveRecord::Schema.define(version: 20170330014515) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "name"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20170321115538) do
     t.datetime "expired_date"
     t.datetime "borrow_date"
     t.integer  "request_status"
-    t.integer  "books_id"
-    t.integer  "users_id"
+    t.integer  "book_id"
+    t.integer  "user_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
@@ -33,12 +33,13 @@ ActiveRecord::Schema.define(version: 20170321115538) do
     t.string   "name"
     t.integer  "paperback"
     t.string   "image"
-    t.boolean  "status"
-    t.integer  "authors_id"
-    t.integer  "publishers_id"
-    t.integer  "categories_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.boolean  "status",       default: true
+    t.integer  "publisher_id"
+    t.integer  "category_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "author_id"
+    t.index ["author_id"], name: "index_books_on_author_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -71,9 +72,9 @@ ActiveRecord::Schema.define(version: 20170321115538) do
     t.string   "email"
     t.string   "address"
     t.integer  "phone_number"
-    t.boolean  "is_admin"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.boolean  "is_admin",        default: true
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "password_digest"
     t.index ["email"], name: "index_users_on_email", unique: true
   end

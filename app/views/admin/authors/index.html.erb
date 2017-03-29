@@ -1,15 +1,33 @@
 <% provide :title, t(".all_author") %>
+<% provide :placeholder, t(".search_author") %>
 <h1><%= t ".all_author" %> </h1>
+
+<%= form_for admin_authors_path, method: :get do %>
+  <%= render "shared/search_form" %>
+<% end %>
 
 <%= will_paginate %>
 
-<ul class="users">
-  <% @authors.each do |author| %>
-    <li>
-      <%= link_to author.name, admin_author_path(author) %>
-      |  <%= link_to t(".edit"), edit_admin_author_path(author) %>
-    </li>
-  <% end %>
-</ul>
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t "name" %></th>
+      <th><%= t "book" %></th>
+      <th><%= t "action" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @authors.each do |author| %>
+      <tr>
+        <td><%= author.name %></td>
+        <td><%= author.total_book %></td>
+        <td><%= link_to t(".edit"), edit_admin_author_path(author) %>
+          | <%= link_to t(".delete"), admin_author_path(author),
+          method: :delete, data:{confirm: t(".confirm")} %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= will_paginate %>

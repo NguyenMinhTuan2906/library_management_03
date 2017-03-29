@@ -1,12 +1,19 @@
 class Admin::AuthorsController < ApplicationController
   before_action :logged_in_user, :verify_admin
-  before_action :load_author, only: [:edit, :update, :show]
+  before_action :load_author, except: [:new, :index, :create]
   layout "admin"
 
   def index
-    @authors = Author.select(:id, :name)
-      .order(name: :asc).paginate page: params[:page],
-      per_page: Settings.paginate.per_page
+    @books = Book.all
+    if params[:q].present?
+      @authors = Author.select(:id, :name).search(params[:q])
+        .order(name: :asc).paginate page: params[:page],
+        per_page: Settings.paginate.per_page
+    else
+      @authors = Author.select(:id, :name)
+        .order(name: :asc).paginate page: params[:page],
+        per_page: Settings.paginate.per_page
+    end
   end
 
   def show
@@ -36,6 +43,19 @@ class Admin::AuthorsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    if @author.books.any?
+       flash[:danger] = t ".delete_fail"
+    else
+      if @author.destroy
+        flash[:success] = t ".delete"
+      else
+        flash[:danger] = t ".delete_fail"
+      end
+    end
+    redirect_to admin_authors_url
   end
 
   private
