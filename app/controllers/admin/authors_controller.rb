@@ -1,6 +1,6 @@
 class Admin::AuthorsController < ApplicationController
   before_action :logged_in_user, :verify_admin
-  before_action :verify_author, only: [:edit, :update, :show]
+  before_action :load_author, except: [:new, :index, :create]
   layout "admin"
 
   def index
@@ -38,13 +38,22 @@ class Admin::AuthorsController < ApplicationController
     end
   end
 
+  def destroy
+    if @author.destroy
+      flash[:success] = t ".delete"
+    else
+      flash[:danger] = t ".delete_fail"
+    end
+    redirect_to admin_authors_url
+  end
+
   private
 
   def author_params
     params.require(:author).permit :name, :description
   end
 
-  def verify_author
+  def load_author
     @author = Author.find_by id: params[:id]
     unless @author
       flash[:danger] = t ".none"

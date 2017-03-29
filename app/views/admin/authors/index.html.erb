@@ -7,7 +7,9 @@
   <% @authors.each do |author| %>
     <li>
       <%= link_to author.name, admin_author_path(author) %>
-      |  <%= link_to t(".edit"), edit_admin_author_path(author) %>
+      | <%= link_to t(".edit"), edit_admin_author_path(author) %>
+      | <%= link_to t(".delete"), admin_author_path(author), method: :delete,
+        data: {confirm: t(".confirm")} %>
     </li>
   <% end %>
 </ul>

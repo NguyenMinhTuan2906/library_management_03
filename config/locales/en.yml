@@ -4,6 +4,8 @@ en:
       errors: "The form contains"
   admin:
     authors:
+      destroy:
+        delete: "Author deleted!"
       edit:
         name: "Author name:"
         description: "Author description:"
@@ -19,6 +21,8 @@ en:
       index:
         edit: "Edit"
         all_author: "All Authors"
+        delete: "Delete"
+        confirm: "You sure?"
     users:
       update:
         success: "Profile Updated!"
