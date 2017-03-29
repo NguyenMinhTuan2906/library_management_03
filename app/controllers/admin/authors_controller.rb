@@ -16,6 +16,7 @@ class Admin::AuthorsController < ApplicationController
   end
 
   def show
+    @books = Book.where(author_id: @author.id)
   end
 
   def new
@@ -61,13 +62,5 @@ class Admin::AuthorsController < ApplicationController
 
   def author_params
     params.require(:author).permit :name, :description
-  end
-
-  def load_author
-    @author = Author.find_by id: params[:id]
-    unless @author
-      flash[:danger] = t ".none"
-      redirect_to admin_authors_url
-    end
   end
 end

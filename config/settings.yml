@@ -10,3 +10,7 @@ gravatar_user:
   size: 50
 paginate:
   per_page: 5
+libraries:
+  library: "lib3.jpg"
+  library2: "lib1.jpg"
+  library3: "lib4.jpg"

@@ -1,8 +1,18 @@
 en:
+  profile: "View my profile"
+  unfollow: "Unfollow"
   name: "Name"
   id: "ID"
   book: "Book"
   action: "Action"
+  edit: "Edit"
+  delete: "Delete"
+  confirm: "You sure?"
+  followers: "Followers"
+  following: "Following"
+  follow: "Follow"
+  publisher: "Publisher"
+  search: "Search"
   shared:
     error_messages:
       errors: "The form contains"
@@ -12,6 +22,7 @@ en:
         create: "Create Book"
       index:
         all_book: "All Books"
+        search_book: "Search book by name or category..."
     authors:
       destroy:
         delete: "Author deleted!"
@@ -28,10 +39,7 @@ en:
         name: "Author name:"
         description: "Author description:"
       index:
-        edit: "Edit"
         all_author: "All Authors"
-        delete: "Delete"
-        confirm: "You sure?"
         search_author: "Search author by name..."
     users:
       update:
@@ -112,6 +120,8 @@ en:
       name: "Name:"
       password: "Password:"
   pages:
+    index:
+      home: "Home"
     help:
       email: "My email:"
       official: "Our official Framgia website:"

@@ -17,6 +17,22 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def load_book
+    @book = Book.find_by id: params[:id]
+    unless @book
+      flash[:danger] = t "books.error.book_not_found"
+      redirect_to root_path
+    end
+  end
+
+  def load_author
+    @author = Author.find_by id: params[:id]
+    unless @author
+      flash[:danger] = t ".none"
+      redirect_to admin_authors_url
+    end
+  end
+
   def logged_in_user
     unless logged_in?
       store_location

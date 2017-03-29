@@ -1,0 +1,33 @@
+<% provide :title, t(".all_category") %>
+<% provide :placeholder, t(".search_category") %>
+<h1><%= t ".all_category" %> </h1>
+
+<%= form_for admin_categories_path, method: :get do %>
+  <%= render "shared/search_form" %>
+<% end %>
+
+<%= will_paginate %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t "name" %></th>
+      <th><%= t "book" %></th>
+      <th><%= t "action" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= link_to category.name, admin_category_path(category) %></td>
+        <td><%= category.books.size %></td>
+        <td><%= link_to t(".edit"), edit_admin_category_path(category) %>
+          | <%= link_to t(".delete"), admin_category_path(category),
+          method: :delete, data:{confirm: t(".confirm")} %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate %>

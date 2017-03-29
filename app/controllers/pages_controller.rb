@@ -1,4 +1,9 @@
 class PagesController < ApplicationController
+
+  def index
+    @books = Book.all
+  end
+
   def show
     if valid_page?
       render template: "pages/#{params[:page]}"
