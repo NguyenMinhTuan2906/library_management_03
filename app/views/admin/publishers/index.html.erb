@@ -20,7 +20,7 @@
   <tbody>
     <% @publishers.each do |publisher| %>
       <tr>
-        <td><%= publisher.name %></td>
+        <td><%= link_to publisher.name, admin_publisher_path(publisher) %></td>
         <td><%= publisher.address %></td>
         <td><%= publisher.total_book %></td>
         <td><%= link_to t(".edit"), edit_admin_publisher_path(publisher) %>

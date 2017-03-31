@@ -3,4 +3,9 @@
   <h2><%= @publisher.name %></h2>
   <p><%= @publisher.description %></p>
   <p><%= @publisher.address %></p>
+  <ul>
+    <% @books.each do |book| %>
+      <li><%= book.name %></li>
+    <% end %>
+  </ul>
 </div>

@@ -25,6 +25,13 @@
       </div>
 
       <div class="form-group">
+        <%= f.label :category %>
+        <%= f.select(:category_id,
+          options_for_select(@category),
+          class: "form-control") %>
+      </div>
+
+      <div class="form-group">
         <%= f.label :paperback, t(".paperback") %>
         <%= f.text_field :paperback, class: "form-control" %>
       </div>

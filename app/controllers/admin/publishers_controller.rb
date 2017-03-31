@@ -16,6 +16,7 @@ class Admin::PublishersController < ApplicationController
   end
 
   def show
+    @books = Book.where(publisher_id: @publisher.id)
   end
 
   def new

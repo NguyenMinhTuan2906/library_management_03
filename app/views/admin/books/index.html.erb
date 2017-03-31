@@ -9,6 +9,7 @@
       <th><%= t "name" %></th>
       <th><%= t "category" %></th>
       <th><%= t "author" %></th>
+      <th><%= t ".publisher" %></th>
       <th><%= t "status" %></th>
       <th><%= t "action" %></th>
     </tr>
@@ -17,8 +18,9 @@
     <% @books.each do |book| %>
       <tr>
         <td><%= book.name %></td>
-        <td></td>
+        <td><%= book.category.name %></td>
         <td><%= book.author.name %></td>
+        <td><%= book.publisher.name %></td>
         <td></td>
         <td>
           <%= link_to t(".edit"), "#" %>
