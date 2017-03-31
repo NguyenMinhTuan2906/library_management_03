@@ -1,5 +1,6 @@
 class Admin::BooksController < ApplicationController
   before_action :logged_in_user, :verify_admin
+  before_action :load_author_and_publisher, only: [:new, :create]
   layout "admin"
 
   def index
@@ -26,6 +27,11 @@ class Admin::BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit :name, :author_id, :image,
-      :paperback
+      :paperback, :publisher_id
+  end
+
+  def load_author_and_publisher
+    @author = Author.all.map{|c| [c.name, c.id]}
+    @publisher = Publisher.all.map{|a| [a.name, a.id]}
   end
 end
