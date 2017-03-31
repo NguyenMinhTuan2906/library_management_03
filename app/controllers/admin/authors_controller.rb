@@ -4,7 +4,6 @@ class Admin::AuthorsController < ApplicationController
   layout "admin"
 
   def index
-    @books = Book.all
     if params[:q].present?
       @authors = Author.select(:id, :name).search(params[:q])
         .order(name: :asc).paginate page: params[:page],
