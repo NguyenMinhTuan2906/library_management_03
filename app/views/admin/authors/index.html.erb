@@ -19,7 +19,7 @@
   <tbody>
     <% @authors.each do |author| %>
       <tr>
-        <td><%= author.name %></td>
+        <td><%= link_to author.name, admin_author_path(author) %></td>
         <td><%= author.total_book %></td>
         <td><%= link_to t(".edit"), edit_admin_author_path(author) %>
           | <%= link_to t(".delete"), admin_author_path(author),
