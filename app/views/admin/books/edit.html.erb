@@ -1,5 +1,6 @@
-<% provide :title, t(".create") %>
-<h1 class="text-center"><%= t ".create" %></h1>
+<% provide :title, t(".editbook") %>
+<h1 class="text-center"><%= t ".update" %></h1>
+
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for [:admin, @book] do |f| %>
@@ -24,7 +25,6 @@
         <%= f.label :category %>
         <%= f.select :category_id, @category, {}, class: "form-control" %>
       </div>
-
       <span class="picture">
         <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
       </span>
@@ -34,7 +34,7 @@
         <%= f.text_field :paperback, class: "form-control" %>
       </div>
 
-      <%= f.submit t(".create"), class: "btn btn-primary" %>
+      <%= f.submit t(".update"), class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

@@ -22,7 +22,7 @@
       <tr>
         <td><%= link_to publisher.name, admin_publisher_path(publisher) %></td>
         <td><%= publisher.address %></td>
-        <td><%= publisher.total_book %></td>
+        <td><%= publisher.books.size %></td>
         <td><%= link_to t(".edit"), edit_admin_publisher_path(publisher) %>
           | <%= link_to t(".delete"), admin_publisher_path(publisher),
           method: :delete, data:{confirm: t(".confirm")} %>
