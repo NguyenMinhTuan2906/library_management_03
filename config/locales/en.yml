@@ -3,6 +3,9 @@ en:
   id: "ID"
   book: "Book"
   action: "Action"
+  edit: "Edit"
+  delete: "Delete"
+  confirm: "You sure?"
   shared:
     error_messages:
       errors: "The form contains"
@@ -28,10 +31,7 @@ en:
         name: "Author name:"
         description: "Author description:"
       index:
-        edit: "Edit"
         all_author: "All Authors"
-        delete: "Delete"
-        confirm: "You sure?"
         search_author: "Search author by name..."
     users:
       update:

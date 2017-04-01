@@ -4,8 +4,4 @@ class Publisher < ApplicationRecord
   validates :description, presence: true
   validates :address, presence: true
   scope :search, ->q{where "name LIKE ?", "%#{q}%"}
-
-  def total_book
-    Book.where(publisher_id: id).count
-  end
 end

@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_action :logged_in_user, :verify_admin
-  before_action :load_user, only: :destroy
+  before_action :load_user, only: [:destroy, :show]
   layout "admin"
 
   def index
@@ -13,6 +13,9 @@ class Admin::UsersController < ApplicationController
         .order(id: :asc).paginate page: params[:page],
         per_page: Settings.paginate.per_page
     end
+  end
+
+  def show
   end
 
   def destroy

@@ -20,7 +20,7 @@
       <tbody>
         <% @users.each do |user| %>
           <tr>
-            <td><%= user.name %></td>
+            <td><%= link_to user.name, admin_user_path(user) %></td>
             <td><%= link_to t(".delete"), admin_user_path(user),
               method: :delete, data: {confirm: t(".confirm")} %></td>
           </tr>
