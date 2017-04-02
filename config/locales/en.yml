@@ -1,4 +1,6 @@
 en:
+  profile: "View my profile"
+  unfollow: "Unfollow"
   name: "Name"
   id: "ID"
   book: "Book"
@@ -6,6 +8,9 @@ en:
   edit: "Edit"
   delete: "Delete"
   confirm: "You sure?"
+  followers: "Followers"
+  following: "Following"
+  follow: "Follow"
   shared:
     error_messages:
       errors: "The form contains"
