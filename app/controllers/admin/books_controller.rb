@@ -35,7 +35,7 @@ class Admin::BooksController < ApplicationController
   def update
     if @book.update_attributes book_params
       flash[:success] = t ".success"
-      redirect_to @book
+      redirect_to admin_books_url
     else
       render :edit
     end
@@ -61,13 +61,5 @@ class Admin::BooksController < ApplicationController
     @author = Author.all.map{|c| [c.name, c.id]}
     @publisher = Publisher.all.map{|a| [a.name, a.id]}
     @category = Category.all.map{|b| [b.name, b.id]}
-  end
-
-  def load_book
-    @book = Book.find_by id: params[:id]
-    unless @book
-      flash[:danger] = t "books.error.book_not_found"
-      redirect_to root_path
-    end
   end
 end
