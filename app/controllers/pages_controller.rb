@@ -1,4 +1,9 @@
 class PagesController < ApplicationController
+
+  def index
+    @books = Book.all
+  end
+
   def show
     if valid_page?
       render template: "pages/#{params[:page]}"
@@ -6,6 +11,7 @@ class PagesController < ApplicationController
       render file: "public/404.html", status: :not_found
     end
   end
+
 
   private
 

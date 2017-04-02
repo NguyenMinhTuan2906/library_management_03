@@ -1,10 +1,10 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <div class="fglogo"><%= link_to image_tag("framgia_logo.png"), "/pages/home" %></div>
+    <div class="fglogo"><%= link_to image_tag("framgia_logo.png"), root_path %></div>
     <div class="menulogo">
       <nav>
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to t(".home"), "/pages/home" %></li>
+          <li><%= link_to t(".home"), root_path %></li>
           <li><%= link_to t(".help"), "/pages/help" %></li>
           <% if logged_in? %>
             <li><%= link_to t(".user"), users_path %></li>

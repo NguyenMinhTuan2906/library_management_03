@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root "pages#show", page: "home"
+  root "pages#index"
+  get "pages/help", to: "pages#help"
   get "/pages/:page", to: "pages#show"
   get "/signup", to: "users#new"
   post "/signup", to: "users#create"
@@ -7,6 +8,8 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   resources :users
+  resources :books
+  resources :authors, only: :show
 
   namespace :admin do
     root "homes#index"
