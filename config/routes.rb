@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   resources :users do
+    resources :book_borrows, only: [:create, :destroy]
     member do
       get :following, :followers
     end
@@ -18,11 +19,12 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
 
   namespace :admin do
-    root "homes#index"
+    root "book_borrows#index"
     resources :users
     resources :authors
     resources :books
     resources :publishers
     resources :categories
+    resources :book_borrows, only: [:index, :update, :destroy]
   end
 end

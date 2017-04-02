@@ -9,7 +9,9 @@ Categories = {
   "vien tuong": "Hu cau",
   "trinh tham": "Ki bi li ky",
   "hai huoc": "Buon cuoi",
-  "tinh cam": "Yeu duong suot muot"
+  "tinh cam": "Yeu duong suot muot",
+  "Khoa hoc cong nghe": "The gioi cong nghe",
+  "Thieu Nhi": "The loai thieu nhi"
   }
 
 Categories.each do |k,v|
@@ -27,11 +29,10 @@ end
     email: email, password: password,
     password_confirmation: password
   Author.create! name: name1,
-    description: "Vo dich Nha Van"
+    description: "Best Author of Years"
   Publisher.create! name: name2,
-    description: "Khung Bo Cao Hieu",
+    description: "Best Publisher of Years",
     address: "#{rand(0..99)} Ha Noi"
-  Book.create name: name3, paperback: 111, image: "ruby.jpg", author_id: rand(1..20), publisher_id: rand(1..20), category_id: rand(1..6)
 end
 
 users = User.all

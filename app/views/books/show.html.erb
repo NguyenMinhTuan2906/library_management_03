@@ -14,3 +14,21 @@
     </section>
   </aside>
 </div>
+<% if logged_in? %>
+  <div class="borrow-book col-md-2">
+      <p><%= t ".borrow_this_book" %></p>
+      <div class="form-borrow">
+        <%= form_for :book_borrow, url: user_book_borrows_path(current_user) do |f| %>
+          <%= f.label t(".input_date") %>
+          <% if @book.status %>
+            <%= f.date_field :expired_date, class: "datetime" %>
+            <%= f.hidden_field :borrow_date, value: Date.today %>
+            <%= f.hidden_field :book_id, value: @book.id %>
+            <%= f.submit t(".borrow"), class: "submit btn btn-primary" %>
+          <% else %>
+            <p><%= t "borrowed" %></p>
+          <% end %>
+        <% end %>
+      </div>
+  </div>
+<% end %>

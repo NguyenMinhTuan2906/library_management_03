@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170331015259) do
+ActiveRecord::Schema.define(version: 20170402130417) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "name"
@@ -22,11 +22,13 @@ ActiveRecord::Schema.define(version: 20170331015259) do
   create_table "book_borrows", force: :cascade do |t|
     t.datetime "expired_date"
     t.datetime "borrow_date"
-    t.integer  "request_status"
-    t.integer  "book_id"
+    t.integer  "request_status", default: 0, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "book_id"
+    t.index ["book_id"], name: "index_book_borrows_on_book_id"
+    t.index ["user_id"], name: "index_book_borrows_on_user_id"
   end
 
   create_table "books", force: :cascade do |t|

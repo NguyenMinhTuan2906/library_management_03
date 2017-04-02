@@ -21,13 +21,20 @@
       <tr>
         <td><%= link_to category.name, admin_category_path(category) %></td>
         <td><%= category.books.size %></td>
-        <td><%= link_to t(".edit"), edit_admin_category_path(category) %>
-          | <%= link_to t(".delete"), admin_category_path(category),
-          method: :delete, data:{confirm: t(".confirm")} %>
+        <td>
+          <div class="btn-group btn-group-sm">
+            <%= link_to edit_admin_category_path(category) do %>
+              <i class="glyphicon glyphicon-pencil btn btn-warning"
+                title="<%= t "edit" %>"></i>
+            <% end %>
+            <%= link_to admin_category_path(category), method: :delete,
+              data: {confirm: t("confirm")} do %>
+              <i class="glyphicon glyphicon-trash btn btn-danger"
+                title="<%= t "delete" %>"></i>
+            <% end %>
+          </div>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<%= will_paginate %>

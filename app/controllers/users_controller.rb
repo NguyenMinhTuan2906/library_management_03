@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @book_borrows = @user.book_borrows
   end
 
   def new
@@ -60,13 +61,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit :name, :email, :password,
       :password_confirmation
-  end
-
-  def correct_user
-    load_user
-    unless current_user? @user
-      flash[:danger] = t ".only_admin"
-      redirect_to root_url
-    end
   end
 end

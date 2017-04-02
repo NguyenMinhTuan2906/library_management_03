@@ -21,13 +21,20 @@
       <tr>
         <td><%= link_to author.name, admin_author_path(author) %></td>
         <td><%= author.books.size %></td>
-        <td><%= link_to t(".edit"), edit_admin_author_path(author) %>
-          | <%= link_to t(".delete"), admin_author_path(author),
-          method: :delete, data:{confirm: t(".confirm")} %>
+        <td>
+          <div class="btn-group btn-group-sm">
+            <%= link_to edit_admin_author_path(author) do %>
+              <i class="glyphicon glyphicon-pencil btn btn-warning"
+                title="<%= t "edit" %>"></i>
+            <% end %>
+            <%= link_to admin_author_path(author), method: :delete,
+              data: {confirm: t("confirm")} do %>
+              <i class="glyphicon glyphicon-trash btn btn-danger"
+                title="<%= t "delete" %>"></i>
+            <% end %>
+          </div>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<%= will_paginate %>

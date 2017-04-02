@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-  has_many :book_borrows
+  has_one :book_borrow
   has_many :users, through: :book_borrows
   belongs_to :author
   belongs_to :publisher
@@ -11,11 +11,16 @@ class Book < ApplicationRecord
   validates :paperback, presence: true
   validate  :picture_size
 
+  delegate :name, to: :author, prefix: true
+  delegate :name, to: :category, prefix: true
+  delegate :name, to: :publisher, prefix: true
+  scope :search, ->q{where "name LIKE ?", "%#{q}%"}
+
   private
 
   def picture_size
     if image.size > 1.megabytes
-      errors.add(:image, "should be less than 1MB")
+      errors.add(:image, I18n.t(".less_than"))
     end
   end
 end

@@ -16,6 +16,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def show
+    @book_borrows = @user.book_borrows
   end
 
   def destroy

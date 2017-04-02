@@ -29,9 +29,7 @@
       <div class="row">
         <% @books.each do |book| %>
           <div class="col-md-3">
-            <a href="#" class="thumbnail">
-              <%= link_to image_tag(book.image), book %>
-            </a>
+           <%= link_to image_tag(book.image), book %>
             <h3><%= link_to book.name, book %></h3>
             <p><%= link_to book.author.name, author_path(book.author) %></p>
           </div>

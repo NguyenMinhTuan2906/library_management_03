@@ -9,7 +9,7 @@
   <body>
     <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <div class="fglogo"><%= link_to image_tag("framgia_logo.png"), "/pages/home" %></div>
+    <div class="fglogo"><%= link_to image_tag("framgia_logo.png"), root_path %></div>
     <div class="menulogo">
       <nav>
         <ul class="nav navbar-nav navbar-right">
@@ -40,6 +40,7 @@
           <li><%= link_to t(".book"), admin_books_path %></li>
           <li><%= link_to t(".publisher"), admin_publishers_path %></li>
           <li><%= link_to t(".category"), admin_categories_path %></li>
+          <li><%= link_to t(".request"), admin_book_borrows_path %></li>
         </ul>
         </div>
         <div class="content col-md-10 col-md-offset-2">

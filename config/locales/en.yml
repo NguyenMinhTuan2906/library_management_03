@@ -1,28 +1,82 @@
 en:
+  borrowed: "This Book has been borrowed!"
+  edit: "edit"
+  delete: "delete"
   profile: "View my profile"
   unfollow: "Unfollow"
   name: "Name"
   id: "ID"
   book: "Book"
   action: "Action"
+  category: "Category"
   edit: "Edit"
   delete: "Delete"
   confirm: "You sure?"
   followers: "Followers"
   following: "Following"
   follow: "Follow"
+  user_accept: "Request has been accepted!"
+  user_reject: "Request has been rejected!"
+  book_borrows:
+    destroy:
+      success_delete: "Request has been deleted!"
+    create:
+      borrow_success: "Borrow Request has been sent to Admin!"
+  books:
+    show:
+      input_date: "Expired Date:"
+      borrow: "Send Request!"
   shared:
     error_messages:
       errors: "The form contains"
   admin:
+    book_borrows:
+      index:
+        request: "Request from users"
+    categories:
+      destroy:
+        delete: "Category has been deleted!"
+        delete_fail: "Cannot delete this category!"
+      create:
+        category: "New category has been created!"
+      index:
+        all_category: "All Categories"
+        search_category: "Search Category by name.."
+      new:
+        create: "Create Category"
+        name: "Category Name:"
+        description: "Category description:"
+    publishers:
+      create:
+        publisher: "New Publisher has been created!"
+      destroy:
+        delete: "Publisher has been deleted!"
+        delete_fail: "Cannot delete this publisher!"
+      new:
+        create: "Create Publisher"
+        name: "Publisher Name:"
+        description: "Publisher description:"
+        address: "Publisher address:"
+      index:
+        all_publisher: "All Publishers"
+        search_publisher: "Search Publishers by name..."
     books:
+      destroy:
+        delete: "Book has been deleted!"
+      create:
+        book: "New book created!"
       new:
         create: "Create Book"
+        name: "Book name"
       index:
         all_book: "All Books"
+        search_book: "Search book here..."
+      edit:
+        update: "Update"
     authors:
       destroy:
         delete: "Author deleted!"
+        delete_fail: "Cannot delete this author!"
       edit:
         name: "Author name:"
         description: "Author description:"
@@ -152,3 +206,8 @@ en:
       author: "Authors"
       create: "Create"
       create_author: "Create New Author"
+      publisher: "Publisher"
+      category: "Category"
+      create_publisher: "Create New Publisher"
+      create_category: "Create New Category"
+      create_book: "Create New Book"

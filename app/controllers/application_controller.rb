@@ -9,6 +9,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def correct_user
+    load_user
+    unless current_user? @user
+      flash[:danger] = t ".only_admin"
+      redirect_to root_url
+    end
+  end
+
   def load_user
     @user = User.find_by id: params[:id]
     if @user.nil?

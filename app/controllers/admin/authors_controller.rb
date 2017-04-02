@@ -5,11 +5,11 @@ class Admin::AuthorsController < ApplicationController
 
   def index
     if params[:q].present?
-      @authors = Author.select(:id, :name).search(params[:q])
-        .order(name: :asc).paginate page: params[:page],
+      @authors = Author.includes(:books).select(:id, :name)
+        .search(params[:q]).order(name: :asc).paginate page: params[:page],
         per_page: Settings.paginate.per_page
     else
-      @authors = Author.select(:id, :name)
+      @authors = Author.includes(:books).select(:id, :name)
         .order(name: :asc).paginate page: params[:page],
         per_page: Settings.paginate.per_page
     end

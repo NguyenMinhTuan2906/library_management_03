@@ -14,3 +14,6 @@ libraries:
   library: "lib3.jpg"
   library2: "lib1.jpg"
   library3: "lib4.jpg"
+default_image: "default.png"
+book_size:
+  size: "130x160"
