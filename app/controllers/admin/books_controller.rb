@@ -6,10 +6,17 @@ class Admin::BooksController < ApplicationController
   layout "admin"
 
   def index
-    @books = Book.includes(:publisher, :author, :category)
-      .select(:id, :name, :author_id, :publisher_id, :category_id)
-      .order(id: :asc).paginate page: params[:page],
-      per_page: Settings.paginate.per_page
+    if params[:q].present?
+      @books = Book.includes(:publisher, :author, :category).search(params[:q])
+        .select(:id, :name, :author_id, :publisher_id, :category_id)
+        .order(id: :asc).paginate page: params[:page],
+        per_page: Settings.paginate.per_page
+    else
+      @books = Book.includes(:publisher, :author, :category)
+        .select(:id, :name, :author_id, :publisher_id, :category_id)
+        .order(id: :asc).paginate page: params[:page],
+        per_page: Settings.paginate.per_page
+    end
   end
 
   def show

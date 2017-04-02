@@ -5,11 +5,11 @@ class Admin::PublishersController < ApplicationController
 
   def index
     if params[:q].present?
-      @publishers = Publisher.select(:id, :name, :address).search(params[:q])
-        .order(name: :asc).paginate page: params[:page],
+      @publishers = Publisher.select(:id, :name, :address).includes(:books)
+        .search(params[:q]).order(name: :asc).paginate page: params[:page],
         per_page: Settings.paginate.per_page
     else
-      @publishers = Publisher.select(:id, :name, :address)
+      @publishers = Publisher.select(:id, :name, :address).includes(:books)
         .order(name: :asc).paginate page: params[:page],
         per_page: Settings.paginate.per_page
     end

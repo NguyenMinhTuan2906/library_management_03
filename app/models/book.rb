@@ -10,12 +10,13 @@ class Book < ApplicationRecord
     uniqueness: {scope: :author_id}
   validates :paperback, presence: true
   validate  :picture_size
+  scope :search, ->q{where "name LIKE ?", "%#{q}%"}
 
   private
 
   def picture_size
     if image.size > 1.megabytes
-      errors.add(:image, "should be less than 1MB")
+      errors.add :image, I18n.t(".less_than")
     end
   end
 end

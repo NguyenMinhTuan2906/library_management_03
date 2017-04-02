@@ -1,5 +1,10 @@
 <% provide :title, t(".all_book") %>
+<% provide :placeholder, t(".search_book") %>
 <h1><%= t ".all_book" %> </h1>
+
+<%= form_for admin_books_path, method: :get do %>
+  <%= render "shared/search_form" %>
+<% end %>
 
 <%= will_paginate %>
 
@@ -9,8 +14,7 @@
       <th><%= t "name" %></th>
       <th><%= t "category" %></th>
       <th><%= t "author" %></th>
-      <th><%= t ".publisher" %></th>
-      <th><%= t "status" %></th>
+      <th><%= t "publisher" %></th>
       <th><%= t "action" %></th>
     </tr>
   </thead>
@@ -21,7 +25,6 @@
         <td><%= book.category.name %></td>
         <td><%= book.author.name %></td>
         <td><%= book.publisher.name %></td>
-        <td></td>
         <td>
           <%= link_to t("edit"), edit_admin_book_path(book) %>
           | <%= link_to t("delete"), admin_book_path(book),

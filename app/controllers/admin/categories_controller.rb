@@ -5,11 +5,11 @@ class Admin::CategoriesController < ApplicationController
 
   def index
     if params[:q].present?
-      @categories = Category.select(:id, :name).search(params[:q])
-        .order(name: :asc).paginate page: params[:page],
+      @categories = Category.select(:id, :name).includes(:books)
+        .search(params[:q]).order(name: :asc).paginate page: params[:page],
         per_page: Settings.paginate.per_page
     else
-      @categories = Category.select(:id, :name)
+      @categories = Category.select(:id, :name).includes(:books)
         .order(name: :asc).paginate page: params[:page],
         per_page: Settings.paginate.per_page
     end

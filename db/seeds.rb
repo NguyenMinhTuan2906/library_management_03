@@ -34,3 +34,9 @@ end
   Book.create name: name3, paperback: 111, image: "ruby.jpg", author_id: rand(1..20), publisher_id: rand(1..20), category_id: rand(1..6)
 end
 
+users = User.all
+user  = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each{ |followed| user.follow(followed) }
+followers.each{ |follower| follower.follow(user) }

@@ -12,7 +12,6 @@ class PagesController < ApplicationController
     end
   end
 
-
   private
 
   def valid_page?
