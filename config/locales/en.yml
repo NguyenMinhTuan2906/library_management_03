@@ -1,9 +1,20 @@
 en:
+  name: "Name"
+  id: "ID"
+  book: "Book"
+  action: "Action"
   shared:
     error_messages:
       errors: "The form contains"
   admin:
+    books:
+      new:
+        create: "Create Book"
+      index:
+        all_book: "All Books"
     authors:
+      destroy:
+        delete: "Author deleted!"
       edit:
         name: "Author name:"
         description: "Author description:"
@@ -19,6 +30,9 @@ en:
       index:
         edit: "Edit"
         all_author: "All Authors"
+        delete: "Delete"
+        confirm: "You sure?"
+        search_author: "Search author by name..."
     users:
       update:
         success: "Profile Updated!"
@@ -121,6 +135,7 @@ en:
     application:
       framgia_library: "Framgia Library Website"
     admin:
+      book: "Books"
       admin: "Admin"
       page: "Page"
       logout: "Log out"

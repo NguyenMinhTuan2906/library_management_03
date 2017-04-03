@@ -4,8 +4,8 @@ class CreateBookBorrows < ActiveRecord::Migration[5.0]
       t.datetime :expired_date
       t.datetime :borrow_date
       t.integer :request_status
-      t.integer :books_id
-      t.integer :users_id
+      t.integer :book_id
+      t.integer :user_id
 
       t.timestamps
     end
