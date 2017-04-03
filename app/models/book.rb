@@ -8,4 +8,8 @@ class Book < ApplicationRecord
     length: {maximum: Settings.name.maximum},
     uniqueness: {scope: :author_id}
   validates :paperback, presence: true
+
+  delegate :name, to: :author, prefix: true
+  delegate :name, to: :category, prefix: true
+  delegate :name, to: :publisher, prefix: true
 end

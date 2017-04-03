@@ -1,0 +1,43 @@
+<% provide :title, t(".all_publisher") %>
+<% provide :placeholder, t(".search_publisher") %>
+<h1><%= t ".all_publisher" %> </h1>
+<div class="form-group">
+  <%= form_for admin_publishers_path, method: :get do %>
+    <%= render "shared/search_form" %>
+  <% end %>
+
+  <%= will_paginate %>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th><%= t "name" %></th>
+        <th><%= t "address" %> </th>
+        <th><%= t "book" %></th>
+        <th><%= t "action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @publishers.each do |publisher| %>
+        <tr>
+          <td><%= publisher.name %></td>
+          <td><%= publisher.address %></td>
+          <td><%= publisher.books.size %></td>
+          <td>
+            <div class="btn-group btn-group-sm">
+              <%= link_to edit_admin_publisher_path(publisher) do %>
+                <i class="glyphicon glyphicon-pencil btn btn-warning"
+                  title="<%= t ".edit" %>"></i>
+              <% end %>
+              <%= link_to admin_publishers_path(publisher), method: :delete,
+                data: {confirm: t("confirm")} do %>
+                <i class="glyphicon glyphicon-trash btn btn-danger"
+                  title="<%= t ".delete" %>"></i>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

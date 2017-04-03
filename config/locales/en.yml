@@ -1,4 +1,5 @@
 en:
+  confirm: "Are You Sure?"
   name: "Name"
   id: "ID"
   book: "Book"
@@ -7,6 +8,12 @@ en:
     error_messages:
       errors: "The form contains"
   admin:
+    publishers:
+      index:
+        edit: "Edit"
+        delete: "Delete"
+        search_publisher: "Search publisher by name..."
+        all_publisher: "All publishers"
     books:
       new:
         create: "Create Book"
@@ -145,3 +152,5 @@ en:
       author: "Authors"
       create: "Create"
       create_author: "Create New Author"
+      publisher: "Publisher"
+      category: "Categories"
