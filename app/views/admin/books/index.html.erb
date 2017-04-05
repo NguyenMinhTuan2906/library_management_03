@@ -2,7 +2,7 @@
 <% provide :placeholder, t(".search_book") %>
 <h1><%= t ".all_book" %> </h1>
 
-<%= form_for admin_books_path, method: :get do %>
+<%= form_for admin_books_path, remote: true, method: :get do %>
   <%= render "shared/search_form" %>
 <% end %>
 
@@ -19,28 +19,7 @@
       <th><%= t "action" %></th>
     </tr>
   </thead>
-  <tbody>
-    <% @books.each do |book| %>
-      <tr>
-        <td><%= link_to book.name, admin_book_path(book) %></td>
-        <td><%= book.category_name %></td>
-        <td><%= book.author_name %></td>
-        <td><%= book.publisher_name %></td>
-        <td></td>
-        <td>
-          <div class="btn-group btn-group-sm">
-            <%= link_to edit_admin_book_path(book) do %>
-              <i class="glyphicon glyphicon-pencil btn btn-warning"
-                title="<%= t "edit" %>"></i>
-            <% end %>
-            <%= link_to admin_book_path(book), method: :delete,
-              data: {confirm: t("confirm")} do %>
-              <i class="glyphicon glyphicon-trash btn btn-danger"
-                title="<%= t "delete" %>"></i>
-            <% end %>
-          </div>
-        </td>
-      </tr>
-    <% end %>
+  <tbody class="table-book">
+    <%= render @books %>
   </tbody>
 </table>

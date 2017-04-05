@@ -4,7 +4,7 @@
       <div id="custom-search-input">
         <div class="input-group col-md-12">
           <%= text_field_tag :q, params[:q], placeholder: (yield :placeholder),
-            class: "form-control" %>
+            class: "form-control search-box" %>
           <span class="input-group-btn">
             <%= button_tag t("search"), class: "btn btn-primary" %>
           </span>

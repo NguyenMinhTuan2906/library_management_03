@@ -6,11 +6,15 @@ class Admin::BooksController < ApplicationController
   layout "admin"
 
   def index
-    if params[:q].present?
+    if params[:active_search]
       @books = Book.includes(:publisher, :author, :category)
         .select(:id, :name, :author_id, :publisher_id, :category_id)
-        .search(params[:q]).order(name: :asc).paginate page: params[:page],
+        .search(params[:name]).order(name: :asc).paginate page: params[:page],
         per_page: Settings.paginate.per_page
+
+      render json: {
+        html_search: render_to_string(@books),
+      }, status: :ok
     else
       @books = Book.includes(:publisher, :author, :category)
         .select(:id, :name, :author_id, :publisher_id, :category_id)
