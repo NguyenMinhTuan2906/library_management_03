@@ -17,8 +17,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-$(document).ready(function(){
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  });
-})
