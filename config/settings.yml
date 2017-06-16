@@ -1,0 +1,19 @@
+name:
+  maximum: 50
+email:
+  maximum: 255
+password:
+  minimum: 6
+gravatar_option:
+  size: 80
+gravatar_user:
+  size: 50
+paginate:
+  per_page: 5
+libraries:
+  library: "lib3.jpg"
+  library2: "lib1.jpg"
+  library3: "lib4.jpg"
+default_image: "default.png"
+book_size:
+  size: "130x160"

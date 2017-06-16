@@ -1,0 +1,40 @@
+<% provide :title, t(".all_author") %>
+<% provide :placeholder, t(".search_author") %>
+<h1><%= t ".all_author" %> </h1>
+
+<%= form_for admin_authors_path, method: :get do %>
+  <%= render "shared/search_form" %>
+<% end %>
+
+<%= will_paginate %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t "name" %></th>
+      <th><%= t "book" %></th>
+      <th><%= t "action" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @authors.each do |author| %>
+      <tr>
+        <td><%= link_to author.name, admin_author_path(author) %></td>
+        <td><%= author.books.size %></td>
+        <td>
+          <div class="btn-group btn-group-sm">
+            <%= link_to edit_admin_author_path(author) do %>
+              <i class="glyphicon glyphicon-pencil btn btn-warning"
+                title="<%= t "edit" %>"></i>
+            <% end %>
+            <%= link_to admin_author_path(author), method: :delete,
+              data: {confirm: t("confirm")} do %>
+              <i class="glyphicon glyphicon-trash btn btn-danger"
+                title="<%= t "delete" %>"></i>
+            <% end %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

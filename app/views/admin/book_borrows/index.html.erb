@@ -1,0 +1,36 @@
+<h1 class="text-center"><%= t ".request" %></h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t ".book_name" %></th>
+      <th><%= t ".user_name" %></th>
+      <th><%= t ".borrow_date" %></th>
+      <th><%= t ".expired_date" %></th>
+      <th><%= t "action" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @book_borrows.each do |book_borrow| %>
+      <tr class="background-tr">
+        <td><%= link_to book_borrow.book.name, book_path(book_borrow.book) %></td>
+        <td><%= book_borrow.user.name %></td>
+        <td><%= book_borrow.borrow_date %></td>
+        <td><%= book_borrow.expired_date %></td>
+        <td>
+          <div class="btn-group btn-group-sm">
+            <%= form_for [:admin, book_borrow], method: :patch,
+              data: {confirm: t("confirm")} do |f| %>
+              <%= f.hidden_field :request, value: "accept" %>
+              <%= f.submit "accept" %>
+            <% end %>
+            <%= form_for [:admin, book_borrow], method: :patch,
+              data: {confirm: t("confirm")} do |f| %>
+              <%= f.hidden_field :request, value: "reject" %>
+              <%= f.submit "reject" %>
+            <% end %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,21 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t ".book_name" %></th>
+      <th><%= t ".borrow_date" %></th>
+      <th><%= t ".expired_date" %></th>
+      <th><%= t ".date_status" %></th>
+      <th><%= t "Action" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @book_borrows.each do |book_borrow| %>
+      <tr>
+        <td><%= book_borrow.book.name %></td>
+        <td><%= book_borrow.borrow_date %></td>
+        <td><%= book_borrow.expired_date %></td>
+        <td><%= book_borrow.request_status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

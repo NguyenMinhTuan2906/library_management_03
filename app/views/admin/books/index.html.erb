@@ -1,0 +1,25 @@
+<% provide :title, t(".all_book") %>
+<% provide :placeholder, t(".search_book") %>
+<h1><%= t ".all_book" %> </h1>
+
+<%= form_for admin_books_path, remote: true, method: :get do %>
+  <%= render "shared/search_form" %>
+<% end %>
+
+<%= will_paginate %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t "name" %></th>
+      <th><%= t "category" %></th>
+      <th><%= t "author" %></th>
+      <th><%= t ".publisher" %></th>
+      <th><%= t "status" %></th>
+      <th><%= t "action" %></th>
+    </tr>
+  </thead>
+  <tbody class="table-book">
+    <%= render @books %>
+  </tbody>
+</table>
