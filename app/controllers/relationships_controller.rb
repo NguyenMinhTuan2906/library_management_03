@@ -4,18 +4,18 @@ class RelationshipsController < ApplicationController
   def create
     @user = User.find_by id: params[:followed_id]
     current_user.follow(@user)
-    respond_to do |format|
-      format.html {redirect_to @user}
-      format.js
-    end
+    render json: {
+      html_content: render_to_string(partial: "users/unfollow"),
+      count_follow: @user.followers.size
+    }
   end
 
   def destroy
     @user = (Relationship.find_by id: params[:id]).followed
     current_user.unfollow(@user)
-    respond_to do |format|
-      format.html {redirect_to @user}
-      format.js
-    end
+    render json: {
+      html_content: render_to_string(partial: "users/follow"),
+      count_follow: @user.followers.size
+    }
   end
 end
